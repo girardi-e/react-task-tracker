@@ -6,6 +6,9 @@ module.exports = {
       center: true,
       padding: '2rem',
     },
+    borderWidth: {
+      '5': '5px',
+    },
     extend: {
       fontFamily: {
         'Rampart': ["Rampart One", "Regular"],
