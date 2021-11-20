@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 function App() {
 
@@ -44,7 +45,11 @@ function App() {
   return (
     <div className="container mx-auto my-5 py-3 h-auto
                     border-4 border-solid border-white">
+
       <Header />
+
+      <AddTask />
+
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete= {deleteTask} onToggle={toggleReminder} />
                         : 'No tasks to show'}
 

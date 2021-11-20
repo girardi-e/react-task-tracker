@@ -1,23 +1,59 @@
+import {useState} from 'react'
+
+
 const AddTask = () => {
+
+  const [text, setText] = useState('')
+  const [day, setDay] = useState('')
+  const [reminder, setReminder] = useState(false)
+
   return (
-    <form>
-      <div>
-        <label>Task</label>
-        <input type='text' placeholder='Add Task'/>
-      </div>
+    <div className="w-full max-w-sm">
 
-      <div>
-        <label>Day & Time</label>
-        <input type='text' placeholder='Add Day & Time'/>
-      </div>
+      <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-      <div>
-        <label>Set Reminder</label>
-        <input type='checkbox'/>
-      </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-md font-bold mb-2">
+            Task
+          </label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700      leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            placeholder="Add Task"
+            value={text}
+            onChange={ (event) => setText(event.target.value)}
+          />
+        </div>
 
-      <input type='submit' value='Save Task' />
-    </form>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-md font-bold mb-2">
+            Day & Time
+          </label>
+            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder="Add Day & Time"
+              value={day}
+              onChange={ (event) => setDay(event.target.value)}
+            />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-md font-bold mb-2">
+            Set Reminder
+          </label>
+          <input
+            type="checkbox"
+            value={reminder}
+            onChange={ (event) => setReminder(event.currentTarget.checked)}
+          />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="button">
+            Save Task
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 
